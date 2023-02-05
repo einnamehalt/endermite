@@ -3,8 +3,6 @@ version: 1.4.0
 passwd:
   users:
     - name: core
-      #groups:
-      #  - docker
       ssh_authorized_keys:
         - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDRrzVksGMC5PnyMU9ZDT8+UVoMv/r+R2ehlnHxJ2Dltky/jsRmj+GAqK8JNyI3Ah7k0z9iMJntA4LRh+/xUkZ8lfP4YPbc9g9ef3/XMJbeVLaZ4x3AUn8WZ5RT8HSEMcfGbMpAzSmAsoBjjLRYscFvo0yQsUwC4koFv0qyezLo7S/m0ThnRDpMYTz7vE1jcWivpJ7UAwXl4qOUe+LLvjVpZ7u4CSz5gvj7ISzsagfjiozTKyJivgQayt15Fp2H9JVwlH9PKOhQXAxCHG9pLyNqFQpdje6qYVXDTj/bBnb2L6S2O/8cwDeGbpo14JzapTQ8qPMmQ01iXWc0fXhi1wRXMAuU3AyiyoaKUsWKKIxbSxdlGu/EYoBPlmK+EMO4/C+KngG+v+PWQ1Bu7c+zBGy+4r8alFN1uuwb3Omd4AKDnqCjnQTqdOqOiwnJvAXLh0KpE4J+3GVjPmEF9OrbQ9bTMk5eOCkJine1enPGK/kdPKc4XyjOVJfN2CvsA1AIuBM=
 storage:
@@ -28,13 +26,13 @@ storage:
     - path: /usr/local/bin/docker-compose
       contents:
         #x86_64
-        source: https://github.com/docker/compose/releases/download/v2.15.1/docker-compose-linux-x86_64
-        verification:
-          hash: sha256-bcfd9ea51dee4c19dccdfaeef0e7956ef68bf14f3d175933742061a7271ef0f5
-        #aarch64
-        #source: https://github.com/docker/compose/releases/download/v2.15.1/docker-compose-linux-aarch64
+        #source: https://github.com/docker/compose/releases/download/v2.15.1/docker-compose-linux-x86_64
         #verification:
-        #  hash: sha256-14d31297794868520cb2e61b543bb1c821aaa484af22b397904314ae8227f6a2
+        #  hash: sha256-bcfd9ea51dee4c19dccdfaeef0e7956ef68bf14f3d175933742061a7271ef0f5
+        #aarch64
+        source: https://github.com/docker/compose/releases/download/v2.15.1/docker-compose-linux-aarch64
+        verification:
+          hash: sha256-14d31297794868520cb2e61b543bb1c821aaa484af22b397904314ae8227f6a2
       mode: 0555
 systemd:
   units:
