@@ -80,3 +80,7 @@ aws ec2 run-instances \
 Find Public IP Address/DNS Name: `aws ec2 describe-instances`
 
 `ssh -i /home/cloudshell-user/test_rsa test@<PUBLIC IP>`
+
+```bash
+NAME='fcos_test' && IMAGE='ami-00f8e408bb2e9b06e' && DISK='10' && REGION='eu-central-1' && TYPE='t2.micro' && SUBNET='subnet-052f690eced6bbe37' && SECURITY_GROUPS='sg-0e98cec768c81142e' && USERDATA='/home/cloudshell-user/octoprint.ign'
+```
