@@ -1,6 +1,6 @@
 {
     "files.associations": {
-        "*.bu": "json",
-        "*.ign": "yaml"
+        "*.bu": "yaml",
+        "*.ign": "json"
     }
 }
