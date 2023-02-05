@@ -1,7 +1,7 @@
 Using AWS CloudShell
 
-Create test_rsa and test_rsa.pub. Replace in test.bu. Build test.ign
-Edit remote.bu to reference your remote test.ign file.
+Create `test_rsa` and `test_rsa.pub`. Replace in `test.bu`. Build `test.ign`
+Edit `remote.bu` to reference your remote `test.ign` file.
 
 Switch to AWS CloudShell:
 Get Public IP
@@ -62,7 +62,7 @@ REGION='eu-central-1'                       # the target region
 TYPE='t2.micro'                             # the instance type (t2.micro - free tier)
 SUBNET='subnet-xxx'                         # the subnet: `aws ec2 describe-subnets`
 SECURITY_GROUPS='sg-xx'                     # the security group `aws ec2 describe-security-groups`
-USERDATA='/home/cloudshell-user/remote.ign' # path to remote.ign (key is example.rsa.pub)
+USERDATA='/home/cloudshell-user/remote.ign' # path to remote.ign (key is test.rsa.pub)
 ```
 
 ```bash
@@ -79,4 +79,4 @@ aws ec2 run-instances \
 
 Find Public IP Address/DNS Name: `aws ec2 describe-instances`
 
-`ssh -i /home/cloudshell-user/test_rsa test@3.123.4.153`
+`ssh -i /home/cloudshell-user/test_rsa test@<PUBLIC IP>
