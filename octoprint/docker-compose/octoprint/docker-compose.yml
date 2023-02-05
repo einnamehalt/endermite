@@ -1,0 +1,18 @@
+version: '2.4'
+
+services:
+  octoprint:
+    container_name: octoprint
+    image: octoprint/octoprint
+    restart: unless-stopped
+    #ports:
+      #- '80:80/tcp'
+    volumes:
+    - data:/octoprint
+    environment:
+      - ENABLE_MJPG_STREAMER=true
+    labels:
+      - "traefik.http.routers.octoprint.rule=Host(`octoprint.localhost`)"
+
+volumes:
+  data:
