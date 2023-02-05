@@ -3,5 +3,5 @@ version: 1.4.0
 ignition:
   config:
     replace:
-       source: https://raw.githubusercontent.com/einnamehalt/endermite/main/igniton/main.ign     # latest
+       source: https://raw.githubusercontent.com/einnamehalt/endermite/release/igniton/main.ign  # latest
        #source: https://raw.githubusercontent.com/einnamehalt/endermite/vx.x.x/igniton/main.ign  # version specific
