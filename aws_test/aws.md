@@ -79,4 +79,4 @@ aws ec2 run-instances \
 
 Find Public IP Address/DNS Name: `aws ec2 describe-instances`
 
-`ssh -i /home/cloudshell-user/test_rsa test@<PUBLIC IP>
+`ssh -i /home/cloudshell-user/test_rsa test@<PUBLIC IP>`
