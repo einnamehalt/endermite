@@ -9,5 +9,4 @@ alias butane='podman run --rm --interactive       \
               quay.io/coreos/butane:release'
 ```
 
-`butane --pretty --strict example.bu > example.ign
-`
+`butane --pretty --strict example.bu > example.ign`
