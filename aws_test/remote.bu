@@ -1,0 +1,6 @@
+variant: fcos
+version: 1.4.0
+ignition:
+  config:
+    replace:
+      source: https://pastebin.com/raw/k8vTfeh4  # replace with remote reference to test.ign
