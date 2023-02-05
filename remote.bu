@@ -1,0 +1,6 @@
+variant: fcos
+version: 1.4.0
+ignition:
+  config:
+    replace:
+      source: https://pastebin.com/raw/k8vTfeh4  # Modify with static reference to latest main.ign
