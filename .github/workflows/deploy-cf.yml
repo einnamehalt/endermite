@@ -23,7 +23,7 @@ jobs:
       uses: addnab/docker-run-action@v3
       with:
         image: quay.io/coreos/butane:release
-        options: --security-opt label=disable --volume ${PWD}:/pwd --workdir /pwd  --rm --interactive
+        options: --security-opt label=disable -v ${{ github.workspace }}:/work --workdir /work  --rm --interactive
         run: |
           --strict -d ./ ./main.bu > ./ignition/main-x86_64.ign
 
