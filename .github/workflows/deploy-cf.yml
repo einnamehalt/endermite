@@ -1,0 +1,15 @@
+name: "Deploy CloudFormation Stack"
+on: 
+  push:
+    branches:
+    - test
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: aws-actions/aws-cloudformation-github-deploy@v1
+      with:
+        name: MyStack
+        template: cf.yml
+        #parameter-overrides: "UserData=<ign>"
