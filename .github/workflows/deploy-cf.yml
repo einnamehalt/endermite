@@ -25,7 +25,7 @@ jobs:
         image: quay.io/coreos/butane:release
         options: --security-opt label=disable -v ${{ github.workspace }}:/work --workdir /work  --rm --interactive
         run: |
-          --strict -d ./ ./main.bu > ./ignition/main-x86_64.ign
+          /usr/local/bin/butane --strict -d ./ ./main.bu > ./ignition/main-x86_64.ign
 
     - name: ConvertBase64
       uses: frostebite/File-To-Base64@master
