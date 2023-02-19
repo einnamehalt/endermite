@@ -1,0 +1,8 @@
+storage:  
+  files:
+    - path: /usr/local/bin/docker-compose
+      contents:
+        source: https://github.com/docker/compose/releases/download/v2.15.1/docker-compose-linux-aarch64
+        verification:
+          hash: sha256-14d31297794868520cb2e61b543bb1c821aaa484af22b397904314ae8227f6a2
+      mode: 0555

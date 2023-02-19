@@ -22,18 +22,6 @@ storage:
       overwrite: true
       target: /etc/systemd/system/docker-compose@.service
       hard: false
-  files:
-    - path: /usr/local/bin/docker-compose
-      contents:
-        #x86_64
-        #source: https://github.com/docker/compose/releases/download/v2.15.1/docker-compose-linux-x86_64
-        #verification:
-        #  hash: sha256-bcfd9ea51dee4c19dccdfaeef0e7956ef68bf14f3d175933742061a7271ef0f5
-        #aarch64
-        source: https://github.com/docker/compose/releases/download/v2.15.1/docker-compose-linux-aarch64
-        verification:
-          hash: sha256-14d31297794868520cb2e61b543bb1c821aaa484af22b397904314ae8227f6a2
-      mode: 0555
 systemd:
   units:
     - name: docker-compose@.service

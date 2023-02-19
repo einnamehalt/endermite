@@ -5,6 +5,24 @@ on:
     - test
 
 jobs:
+  generate-ignition:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Merge Butane Files for ARCH
+      uses: mikefarah/yq@v4.30.8
+      with:
+        cmd: yq '. *= load("main_x86_64.bu")' main.bu
+
+    - name: Generate Ignition File
+      uses: addnab/docker-run-action@v3
+      with:
+        image: quay.io/coreos/butane:release
+        options: --security-opt label=disable -v ${{ github.workspace }}:/work --workdir /work  --rm --interactive
+        run: |
+          /usr/local/bin/butane --strict -d ./ < ${{ steps.get_username.outputs.result }} > ./ignition/main-x86_64.ign
   deploy:
     runs-on: ubuntu-latest
     steps:
@@ -18,14 +36,6 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: eu-central-1
-
-    - name: Generate Ignition File
-      uses: addnab/docker-run-action@v3
-      with:
-        image: quay.io/coreos/butane:release
-        options: --security-opt label=disable -v ${{ github.workspace }}:/work --workdir /work  --rm --interactive
-        run: |
-          /usr/local/bin/butane --strict -d ./ ./main.bu > ./ignition/main-x86_64.ign
 
     - name: ConvertBase64
       uses: frostebite/File-To-Base64@master
