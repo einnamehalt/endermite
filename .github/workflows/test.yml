@@ -27,7 +27,7 @@ jobs:
         image: quay.io/coreos/butane:release
         options: --security-opt label=disable -v ${{ github.workspace }}:/work --workdir /work  --rm --interactive
         run: |
-          /usr/local/bin/butane --strict -d ./ < '${{ steps.mergeButane.outputs.result }}' > ./ignition/main-${{ matrix.arch }}.ign
+          /usr/local/bin/butane --strict -d ./ < 'echo ${{ steps.mergeButane.outputs.result }}' > ./ignition/main-${{ matrix.arch }}.ign
         # use tmp yq generated butane file
         # save ignition file in ignition folder and commit/push
         # repeat for all archs
