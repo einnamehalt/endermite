@@ -23,7 +23,7 @@ jobs:
         image: quay.io/coreos/butane:release
         options: --security-opt label=disable -v ${{ github.workspace }}:/work --workdir /work  --rm --interactive
         run: |
-          /usr/local/bin/butane --strict -d ./ < ${{ steps.mergeButane.outputs.result }} > ./ignition/main-x86_64.ign
+          /usr/local/bin/butane --strict -d ./ < "${{ steps.mergeButane.outputs.result }}" > ./ignition/main-x86_64.ign
   deploy:
     runs-on: ubuntu-latest
     steps:
