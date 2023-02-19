@@ -1,4 +1,4 @@
-name: "Deploy CloudFormation Stack"
+name: "Test Branch Workflow"
 on: 
   push:
     branches:
@@ -7,6 +7,9 @@ on:
 jobs:
   generate-ignition:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        arch: [ "aarch64", "x86_64" ]
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -15,7 +18,8 @@ jobs:
       uses: mikefarah/yq@v4.30.8
       id: mergeButane
       with:
-        cmd: yq '. *= load("main_x86_64.bu")' main.bu
+        cmd: yq '. *= load("main_${{ matrix.arch }}.bu")' main.bu
+      #output to tmp file
 
     - name: Generate Ignition File
       uses: addnab/docker-run-action@v3
@@ -23,9 +27,13 @@ jobs:
         image: quay.io/coreos/butane:release
         options: --security-opt label=disable -v ${{ github.workspace }}:/work --workdir /work  --rm --interactive
         run: |
-          /usr/local/bin/butane --strict -d ./ < "${{ steps.mergeButane.outputs.result }}" > ./ignition/main-x86_64.ign
+          /usr/local/bin/butane --strict -d ./ < '${{ steps.mergeButane.outputs.result }}' > ./ignition/main-${{ matrix.arch }}.ign
+        # use tmp yq generated butane file
+        # save ignition file in ignition folder and commit/push
+        # repeat for all archs
   deploy:
     runs-on: ubuntu-latest
+    needs: [ generate-ignition ]
     steps:
     - name: Checkout
       uses: actions/checkout@v2
