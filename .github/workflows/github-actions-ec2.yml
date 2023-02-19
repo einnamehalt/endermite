@@ -1,4 +1,0 @@
-jobs:
-  deploy:
-    name: Deploy to EC2
-    #runs-on: ubuntu-latest
