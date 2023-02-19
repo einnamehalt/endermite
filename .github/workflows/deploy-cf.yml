@@ -22,6 +22,6 @@ jobs:
     - name: Deploy CF Stack
       uses: aws-actions/aws-cloudformation-github-deploy@v1
       with:
-        name: MyStack
+        name: test-endermite
         template: cf.yml
         #parameter-overrides: "UserData=<ign>"
