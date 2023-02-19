@@ -13,6 +13,7 @@ jobs:
 
     - name: Merge Butane Files for ARCH
       uses: mikefarah/yq@v4.30.8
+      id: mergeButane
       with:
         cmd: yq '. *= load("main_x86_64.bu")' main.bu
 
@@ -22,7 +23,7 @@ jobs:
         image: quay.io/coreos/butane:release
         options: --security-opt label=disable -v ${{ github.workspace }}:/work --workdir /work  --rm --interactive
         run: |
-          /usr/local/bin/butane --strict -d ./ < ${{ steps.get_username.outputs.result }} > ./ignition/main-x86_64.ign
+          /usr/local/bin/butane --strict -d ./ < ${{ steps.mergeButane.outputs.result }} > ./ignition/main-x86_64.ign
   deploy:
     runs-on: ubuntu-latest
     steps:
