@@ -31,7 +31,7 @@ jobs:
       uses: frostebite/File-To-Base64@master
       id: base64Config
       with:
-        - filePath: ./ignition/main-x86_64.ign
+        filePath: ./ignition/main-x86_64.ign
 
     - name: Deploy CF Stack
       uses: aws-actions/aws-cloudformation-github-deploy@v1
