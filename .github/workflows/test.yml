@@ -48,13 +48,12 @@ jobs:
       with:
         path: ./ignition
 
-    - name: Build app
-      id: build
+    - name: Move ignition files
+      id: move
       run: |
         mv ./ignition/*/* ./ignition/
 
     - name: Add and Commit
-      if: steps.dl.outcome == 'success'
       uses: EndBug/add-and-commit@v9
       with:
         add: './ignition/*'
