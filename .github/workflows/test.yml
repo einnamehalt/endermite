@@ -81,17 +81,17 @@ jobs:
         image: quay.io/coreos/butane:release
         options: --security-opt label=disable -v ${{ github.workspace }}:/work --workdir /work  --rm --interactive
         run: |
-          /usr/local/bin/butane --strict ./test/remote.bu > ./test/remote.ign
+          /usr/local/bin/butane --strict ./ci_cd/test/remote.bu > ./ci_cd/test/remote.ign
 
     - name: ConvertBase64
       uses: frostebite/File-To-Base64@master
       id: base64Config
       with:
-        filePath: ./test/remote.ign
+        filePath: ./ci_cd/test/remote.ign
 
     - name: Deploy CF Stack
       uses: aws-actions/aws-cloudformation-github-deploy@v1
       with:
         name: test-endermite
-        template: cf.yml
+        template: ./ci_cd/cf.yml
         parameter-overrides: "UserData=${{ steps.base64Config.outputs.base64 }}"
