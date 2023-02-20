@@ -27,8 +27,6 @@ jobs:
         options: --security-opt label=disable -v ${{ github.workspace }}:/work --workdir /work  --rm --interactive
         run: |
           /usr/local/bin/butane --strict -d ./ ./merged_main_${{ matrix.arch }}.bu > main-${{ matrix.arch }}.ign
-          chown 1001:123 main-${{ matrix.arch }}.ign
-          ls -lah
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3.1.2
@@ -53,7 +51,7 @@ jobs:
     - name: Build app
       id: build
       run: |
-        ls -lah ./ignition
+        cat ./ignition/main-aarch64.ign
 
     - name: Add and Commit
       if: steps.dl.outcome == 'success'
