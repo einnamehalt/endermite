@@ -34,7 +34,7 @@ jobs:
         name: ignition-${{ matrix.arch }}
         path: main-${{ matrix.arch }}.ign
 
-  publish_ignition:
+  publish-ignition:
     runs-on: ubuntu-latest
     needs: [ generate-ignition ]
     steps:
