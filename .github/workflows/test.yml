@@ -51,7 +51,7 @@ jobs:
     - name: Build app
       id: build
       run: |
-        mv ./ignition/* ./ignition/
+        mv ./ignition/*/* ./ignition/
 
     - name: Add and Commit
       if: steps.dl.outcome == 'success'
