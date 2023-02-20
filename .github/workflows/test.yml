@@ -57,6 +57,7 @@ jobs:
       if: steps.dl.outcome == 'success'
       uses: EndBug/add-and-commit@v9
       with:
+        add: './ignition/*'
         default_author: github_actions
 
   deploy:
