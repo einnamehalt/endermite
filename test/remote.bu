@@ -1,0 +1,6 @@
+variant: fcos
+version: 1.4.0
+ignition:
+  config:
+    replace:
+       source: https://raw.githubusercontent.com/einnamehalt/endermite/test/ignition/main-x86_64.ign

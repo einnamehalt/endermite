@@ -22,6 +22,13 @@ storage:
       overwrite: true
       target: /etc/systemd/system/docker-compose@.service
       hard: false
+  files:
+    - path: /usr/local/bin/docker-compose
+      contents:
+        source: https://github.com/docker/compose/releases/download/v2.15.1/docker-compose-linux-aarch64
+        verification:
+          hash: sha256-14d31297794868520cb2e61b543bb1c821aaa484af22b397904314ae8227f6a2
+      mode: 0555
 systemd:
   units:
     - name: docker-compose@.service
@@ -31,7 +38,7 @@ systemd:
         Description=%i service with docker-compose
         After=network-online.target
         Wants=network-online.target
-    
+
         [Service]
         Type=oneshot
         RemainAfterExit=true
@@ -39,7 +46,7 @@ systemd:
         WorkingDirectory=/etc/docker/compose/%i
         ExecStart=/usr/local/bin/docker-compose up -d --remove-orphans
         ExecStop=/usr/local/bin/docker-compose down
-    
+
         [Install]
         WantedBy=multi-user.target
     - name: rpm-ostree-countme.timer
