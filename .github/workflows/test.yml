@@ -75,14 +75,6 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: eu-central-1
     
-    - name: Generate Ignition File
-      uses: addnab/docker-run-action@v3
-      with:
-        image: quay.io/coreos/butane:release
-        options: --security-opt label=disable -v ${{ github.workspace }}:/work --workdir /work  --rm --interactive
-        run: |
-          /usr/local/bin/butane --strict ./ci_cd/test/remote.bu > ./ci_cd/test/remote.ign
-
     - name: ConvertBase64
       uses: frostebite/File-To-Base64@master
       id: base64Config
@@ -95,3 +87,4 @@ jobs:
         name: test-endermite
         template: ./ci_cd/cf.yml
         parameter-overrides: "UserData=${{ steps.base64Config.outputs.base64 }}"
+        no-fail-on-empty-changeset: "1"
