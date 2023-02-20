@@ -51,7 +51,7 @@ jobs:
     - name: Build app
       id: build
       run: |
-        cat ./ignition/main-aarch64.ign
+        ls -lah ./ignition/main-aarch64.ign
 
     - name: Add and Commit
       if: steps.dl.outcome == 'success'
