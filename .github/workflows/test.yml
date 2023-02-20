@@ -27,12 +27,13 @@ jobs:
         options: --security-opt label=disable -v ${{ github.workspace }}:/work --workdir /work  --rm --interactive
         run: |
           /usr/local/bin/butane --strict -d ./ ./merged_main_${{ matrix.arch }}.bu > main-${{ matrix.arch }}.ign
+          ls -lah
     
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v3.1.2
       with:
         name: main-${{ matrix.arch }}.ign
-        path: main-${{ matrix.arch }}.ign
+        path: ./main-${{ matrix.arch }}.ign
 
   publish-ignition:
     runs-on: ubuntu-latest
