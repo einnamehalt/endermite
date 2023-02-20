@@ -87,4 +87,4 @@ jobs:
         name: test-endermite
         template: ./ci_cd/cf.yml
         parameter-overrides: "UserData=${{ steps.base64Config.outputs.base64 }}"
-        no-fail-on-empty-changeset: "1"
+        parameter-overrides: "TimeStamp=$(date --rfc-3339=date)"
