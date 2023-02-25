@@ -24,7 +24,7 @@ jobs:
       uses: mikefarah/yq@v4.30.8
       id: mergeButane_0
       with:
-        cmd: yq '. *+ load("enable_services.bu")' main_${{ matrix.arch }}.bu > merged_main_${{ matrix.arch }}.bu
+        cmd: yq '. *+ load("main_enable_services.bu")' main_${{ matrix.arch }}.bu > merged_main_${{ matrix.arch }}.bu
 
     - name: Merge with main file
       uses: mikefarah/yq@v4.30.8
