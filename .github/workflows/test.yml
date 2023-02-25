@@ -22,13 +22,13 @@ jobs:
 
     - name: Merge services + ARCH
       uses: mikefarah/yq@v4.30.8
-      id: mergeButane
+      id: mergeButane_0
       with:
         cmd: yq '. *+ load("enable_services.bu")' main_${{ matrix.arch }}.bu > merged_main_${{ matrix.arch }}.bu
 
     - name: Merge with main file
       uses: mikefarah/yq@v4.30.8
-      id: mergeButane
+      id: mergeButane_1
       with:
         cmd: yq '. *+ load("merged_main_${{ matrix.arch }}.bu")' main.bu > merged_main_${{ matrix.arch }}.bu
 
