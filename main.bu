@@ -9,19 +9,6 @@ storage:
   trees:
     - local: docker-compose
       path: /etc/docker/compose/
-  links:
-    - path: /etc/systemd/system/multi-user.target.wants/docker-compose@octoprint.service
-      overwrite: true
-      target: /etc/systemd/system/docker-compose@.service
-      hard: false
-    - path: /etc/systemd/system/multi-user.target.wants/docker-compose@adguardhome.service
-      overwrite: true
-      target: /etc/systemd/system/docker-compose@.service
-      hard: false
-    - path: /etc/systemd/system/multi-user.target.wants/docker-compose@traefik.service
-      overwrite: true
-      target: /etc/systemd/system/docker-compose@.service
-      hard: false
 systemd:
   units:
     - name: docker-compose@.service

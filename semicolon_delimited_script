@@ -1,2 +1,0 @@
-/usr/local/bin/butane --strict -d ./ ./merged_main_aarch64.bu > ./ignition/main-aarch64.ign
-

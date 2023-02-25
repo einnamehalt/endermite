@@ -10,6 +10,10 @@ Resources:
           ToPort: '80'
           CidrIp: !Ref SSHLocation
         - IpProtocol: tcp
+          FromPort: '8080'
+          ToPort: '8080'
+          CidrIp: !Ref SSHLocation
+        - IpProtocol: tcp
           FromPort: '22'
           ToPort: '22'
           CidrIp: !Ref SSHLocation
@@ -22,6 +26,12 @@ Resources:
         - !Ref endermiteSG
       UserData: !Ref UserData
 Parameters:
+  #CreationDate:
+  #  Description: Date
+  #  Type: String
+  #  Default: '2013-03-20 21:15:00'
+  #  AllowedPattern: "^\\d{4}(-\\d{2}){2} (\\d{2}:){2}\\d{2}$"
+  #  ConstraintDescription: Date and time of creation
   UserData:
     Type: String
     Default: 'eyJpZ25pdGlvbiI6eyJjb25maWciOnsicmVwbGFjZSI6eyJzb3VyY2UiOiJodHRwczovL2dpdGh1Yi5jb20vZWlubmFtZWhhbHQvZW5kZXJtaXRlL3JlbGVhc2VzL2xhdGVzdC9kb3dubG9hZC9tYWluLXg4Nl82NC5pZ24ifX0sInZlcnNpb24iOiIzLjMuMCJ9fQ=='

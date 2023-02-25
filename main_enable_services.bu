@@ -1,0 +1,16 @@
+variant: fcos
+version: 1.4.0
+storage:
+  links:
+    - path: /etc/systemd/system/multi-user.target.wants/docker-compose@adguardhome.service
+      overwrite: true
+      target: /etc/systemd/system/docker-compose@.service
+    - path: /etc/systemd/system/multi-user.target.wants/docker-compose@homeassistant.service
+      overwrite: true
+      target: /etc/systemd/system/docker-compose@.service
+    - path: /etc/systemd/system/multi-user.target.wants/docker-compose@octoprint.service
+      overwrite: true
+      target: /etc/systemd/system/docker-compose@.service
+    - path: /etc/systemd/system/multi-user.target.wants/docker-compose@traefik.service
+      overwrite: true
+      target: /etc/systemd/system/docker-compose@.service

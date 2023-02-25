@@ -1,3 +1,3 @@
 target folder for building ignition files.
-Find them here:
+Find the released version here:
 https://github.com/einnamehalt/endermite/releases/latest
