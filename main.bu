@@ -12,7 +12,7 @@ storage:
   files:
     - path: /usr/lib/systemd/system-preset/99-endermite.preset
       contents:
-        local: system-preset/99-endermite.preset
+        local: ./system-preset/100-endermite.preset
       mode: 0644
 systemd:
   units:
