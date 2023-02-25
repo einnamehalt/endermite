@@ -82,10 +82,8 @@ jobs:
         filePath: ./ci_cd/test/remote.ign
 
     - name: Deploy CF Stack
-      uses: Wandalen/wretry.action@v1.0.36
+      uses: aws-actions/aws-cloudformation-github-deploy@v1
       with:
-        action: aws-actions/aws-cloudformation-github-deploy@v1
-        with: |
-          name: test-endermite
-          template: ./ci_cd/cf.yml
-          parameter-overrides: "UserData=${{ steps.base64Config.outputs.base64 }}"
+        name: test-endermite
+        template: ./ci_cd/cf.yml
+        parameter-overrides: "UserData=${{ steps.base64Config.outputs.base64 }}" #, CreationDate=${{date '+%Y-%m-%d %H:%M:%S'}}"
