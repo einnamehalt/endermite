@@ -1,4 +1,5 @@
 # endermite
+[![Test Branch Workflow](https://github.com/einnamehalt/endermite/actions/workflows/test.yml/badge.svg?branch=test)](https://github.com/einnamehalt/endermite/actions/workflows/test.yml)
 
 Use `remote-<architecture>.ign` on target device. Choose the right target archtitecture.
 
