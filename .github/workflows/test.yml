@@ -88,4 +88,4 @@ jobs:
         with: |
           name: test-endermite
           template: ./ci_cd/cf.yml
-          parameter-overrides: "UserData=${{ steps.base64Config.outputs.base64 }}" #, CreationDate=${{date '+%Y-%m-%d %H:%M:%S'}}"
+          parameter-overrides: "UserData=${{ steps.base64Config.outputs.base64 }}"
