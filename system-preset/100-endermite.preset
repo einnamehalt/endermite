@@ -1,4 +1,0 @@
-enable docker-compose@adguardhome.service
-enable docker-compose@homeassistant.service
-enable docker-compose@octoprint.service
-enable docker-compose@traefik.service

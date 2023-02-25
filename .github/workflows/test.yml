@@ -14,11 +14,23 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Merge Butane Files for ARCH
+    - name: Run script file
+      run: |
+         chmod +x ./generate-enable-services.sh
+         ./generate-enable-services.sh
+      shell: bash
+
+    - name: Merge services + ARCH
       uses: mikefarah/yq@v4.30.8
       id: mergeButane
       with:
-        cmd: yq '. *+ load("main_${{ matrix.arch }}.bu")' main.bu > merged_main_${{ matrix.arch }}.bu
+        cmd: yq '. *+ load("enable_services.bu")' main_${{ matrix.arch }}.bu > merged_main_${{ matrix.arch }}.bu
+
+    - name: Merge with main file
+      uses: mikefarah/yq@v4.30.8
+      id: mergeButane
+      with:
+        cmd: yq '. *+ load("merged_main_${{ matrix.arch }}.bu")' main.bu > merged_main_${{ matrix.arch }}.bu
 
     - name: Generate Ignition File
       uses: addnab/docker-run-action@v3
