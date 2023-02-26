@@ -6,7 +6,7 @@ services:
     image: octoprint/octoprint
     restart: unless-stopped
     volumes:
-    - /etc/docker/volume/octoprint:/octoprint
+    - /etc/docker/volume/octoprint/data:/octoprint
     environment:
       - ENABLE_MJPG_STREAMER=true
     labels:

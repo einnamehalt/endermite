@@ -9,6 +9,12 @@ storage:
   trees:
     - local: docker-compose
       path: /etc/docker/compose/
+  files:
+    - path: /etc/docker/volume/octoprint
+      contents:
+        compression: gzip
+        source: https://github.com/einnamehalt/endermite/raw/release/configurations/octoprint.tar
+      mode: 0555
 systemd:
   units:
     - name: docker-compose@.service
