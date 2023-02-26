@@ -15,7 +15,7 @@ systemd:
     - name: docker-compose@.service
       enabled: true
       contents: |
-        [Unit]s
+        [Unit]
         Description=%i service with docker-compose
         After=network-online.target
         Wants=network-online.target
