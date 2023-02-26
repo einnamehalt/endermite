@@ -6,6 +6,8 @@ services:
     image: traefik:v2.9
     command:
       - "--providers.docker"
+      - "--api.dashboard=true"
+      - "--entrypoints.web.address=:80"
       - "--entrypoints.websecure.address=:443"
       - "--certificatesresolvers.default.acme.email=einnamehalt@f3r.eu"
       - "--certificatesresolvers.default.acme.storage=/letsencrypt/acme.json"
@@ -13,9 +15,6 @@ services:
       - "--certificatesresolvers.default.acme.tlschallenge=true"
       - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
       - "--entrypoints.web.http.redirections.entryPoint.scheme=https"
-      - "--api.dashboard=true"
-      - "--entrypoints.web.address=:80"
-      - "--entrypoints.websecure.address=:443"
     privileged: true
     network_mode: "host"
     ports:
@@ -25,12 +24,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - "letsencrypt:/letsencrypt"
     labels:
-      - "traefik.enable=true"        
-      - "traefik.http.routers.http-catchall.rule=hostregexp(`{host:.+}`)"
-      - "traefik.http.routers.http-catchall.entrypoints=web"
-      - "traefik.http.routers.http-catchall.middlewares=redirect-to-https@docker"
-      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
-      - "traefik.http.routers.traefik.rule=Host(`traefik.f3r.eu`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))"
+      - "traefik.enable=true"
+      - "traefik.http.routers.traefik.rule=Host(`traefik.f3r.eu`)"
       - "traefik.http.routers.traefik.service=api@internal"
       - "traefik.http.routers.traefik.entrypoints=websecure"
       - "traefik.http.routers.traefik.tls=true"
