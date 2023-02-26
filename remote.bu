@@ -4,4 +4,4 @@ ignition:
   config:
     replace:
        source: https://github.com/einnamehalt/endermite/releases/latest/download/main-aarch64.ign   # latest
-       #source: https://github.com/einnamehalt/endermite/releases/download/vX.X.X/main-aarch64.ign  # version specific
+       #source: https://github.com/einnamehalt/endermite/releases/download/vX.X.X/main-aarch64.ign  # version specific release
