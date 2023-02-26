@@ -1,4 +1,0 @@
-printer_config:
-- M220
-- M221 T0 S100
-version: 2.3.0

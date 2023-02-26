@@ -9,8 +9,6 @@ storage:
   trees:
     - local: docker-compose
       path: /etc/docker/compose/
-    - local: configuration
-      path: /etc/docker/volume/
 systemd:
   units:
     - name: docker-compose@.service
