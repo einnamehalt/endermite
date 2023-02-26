@@ -10,6 +10,13 @@ storage:
   trees:
     - local: docker-compose
       path: /etc/docker/compose/
+  files:
+    - path: /etc/hostname
+      mode: 0644
+      contents:
+        inline: octoprint.localhost
+
+
 systemd:
   units:
     - name: docker-compose@.service
