@@ -11,6 +11,7 @@ services:
       - ENABLE_MJPG_STREAMER=true
     labels:
       - "traefik.http.routers.octoprint.rule=Host(`octoprint.f3r.eu`)"
+      - "traefik.http.routers.traefik.entrypoints=websecure"
       - "traefik.http.routers.octoprint.tls=true"
       - "traefik.http.routers.octoprint.tls.certresolver=default"
 
