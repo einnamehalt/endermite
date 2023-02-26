@@ -1,38 +1,21 @@
 version: "3.9"
 
 services:
-  # Start the agent with the latest version
-  hub-agent:
-    image: ghcr.io/traefik/hub-agent-traefik:v1.0.0
-    pull_policy: always
-    container_name: hub-agent
-    restart: "on-failure"
-    command:
-      - run
-      - --hub.token=519785a7-3c00-4150-a8a4-57fdd18697f6
-      - --auth-server.advertise-url=http://hub-agent
-      - --traefik.host=traefik
-      - --traefik.tls.insecure=true
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    depends_on:
-      - traefik
-
-  # Start Traefik with the latest version
   traefik:    
     container_name: traefik
     image: traefik:v2.9
     command:
-      # Enable Hub communication (open the port 9900 and 9901 by default)
-      - --experimental.hub=true
-      - --hub.tls.insecure=true
-      - --metrics.prometheus.addrouterslabels=true
       - --api.insecure=true
       - --providers.docker
+      - --certificatesresolvers.default.acme.email=einnamehalt@f3r.eu
+      - --certificatesresolvers.default.acme.email=einnamehalt@acme.json
+      - --certificatesresolvers.default.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
+      - 
     privileged: true
     network_mode: "host"
     ports:
-      - "80:80"
+      - "443:443"
       - "8080:8080"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - "./letsencrypt:/letsencrypt"
