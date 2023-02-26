@@ -4,7 +4,7 @@ passwd:
   users:
     - name: core
       ssh_authorized_keys:
-        - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPwG7WBrSDpY5MQU++HXlnwQpK80ZBcMqbYr5ljtYLYc
+        - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEJwRzuOxjBV9qTjUkXqYACgaC25eNtjZhhwjI4URj7t
 storage:
   trees:
     - local: docker-compose
