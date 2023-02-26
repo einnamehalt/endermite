@@ -16,10 +16,16 @@ services:
     network_mode: "host"
     ports:
       - "443:443"
-      - "8080:8080"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - "letsencrypt:/letsencrypt"
+    labels:
+      - "traefik.http.routers.dashboard.rule=Host(`traefik.f3r.eu`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))"
+      - "traefik.http.routers.dashboard.service=api@internal"
+      - "traefik.http.routers.dashboard.middlewares=auth"
+      - "traefik.http.routers.dashboard.tls=true"
+      - "traefik.http.routers.dashboard.tls.certresolver=default"
+      - "traefik.http.middlewares.auth.basicauth.users=sergio:$apr1$h5pzklm4$66TbMtHWaKLOoobo5mSh31"
 
 volumes:
   letsencrypt:
