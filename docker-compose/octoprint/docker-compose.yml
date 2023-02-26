@@ -6,13 +6,10 @@ services:
     image: octoprint/octoprint
     restart: unless-stopped
     volumes:
-    - data:/octoprint
+    - /etc/docker/volume/octoprint:/octoprint
     environment:
       - ENABLE_MJPG_STREAMER=true
     labels:
       - "traefik.http.routers.octoprint.rule=Host(`octoprint.f3r.eu`)"
       - "traefik.http.routers.octoprint.tls=true"
       - "traefik.http.routers.octoprint.tls.certresolver=default"
-
-volumes:
-  data:
