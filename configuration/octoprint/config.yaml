@@ -1,0 +1,100 @@
+api:
+  key: 1271FBEA16434588A7A5F43F55B65FCB
+appearance:
+  closeModalsWithClick: false
+  color: blue
+  name: AbstellPrint (Endermite)
+plugins:
+  announcements:
+    _config_version: 1
+    channels:
+      _blog:
+        read_until: 1670938200
+      _important:
+        read_until: 1521111600
+      _octopi:
+        read_until: 1670518800
+      _plugins:
+        read_until: 1674453600
+      _releases:
+        read_until: 1666085100
+  bedlevelvisualizer:
+    _config_version: 1
+  cura:
+    cura_engine: null
+  discovery:
+    publicPort: 80
+    upnpUuid: a8aaddcd-fb20-4285-9a86-7c9a53d5d0ee
+  errortracking:
+    unique_id: 0653f59a-50f6-4db8-9624-402703e817da
+  firmwareupdater:
+    _config_version: 3
+    _selected_profile: 0
+    profiles:
+    - _id: 0
+      _name: Default
+  gcodeviewer:
+    _config_version: 1
+  octoeverywhere:
+    AddPrinterUrl: https://octoeverywhere.com/getstarted?isFromOctoPrint=true&printerid=FNDW36QJVYV7CUYM9E2LYRF5F4CWKQJ2BIC6UMI1YOLHCHO1X5MEVHTQJTWD
+    HasConnectedAccounts: true
+    NoAccountConnectedLastInformDateTime: 2023-02-04 21:21:10.756234
+    Pid: 6WCxKaJYe9gcWYrVG6IvZ2pVR76XKbxGVNoTrkocqr6SVhNezCgLsP5ozyLrsUL2TC5R7oYBLSFwyPO9
+    PluginUpdateRequired: false
+    PluginVersion: 2.0.6
+    PrinterKey: FNDW36QJVYV7CUYM9E2LYRF5F4CWKQJ2BIC6UMI1YOLHCHO1X5MEVHTQJTWD
+  octolapse:
+    _config_version: 3
+  softwareupdate:
+    _config_version: 9
+  tracking:
+    enabled: false
+    events:
+      commerror: false
+      plugin: false
+      pong: false
+      printer: false
+      printer_safety_check: false
+      printjob: false
+      slicing: false
+      startup: false
+      throttled: false
+      update: false
+      webui_load: false
+    unique_id: 869f3eb5-4bc5-40ed-9d84-7a6cd05c32c1
+  virtual_printer:
+    _config_version: 1
+printerProfiles:
+  default: _default
+serial:
+  autoconnect: true
+  waitForStartOnConnect: true
+server:
+  commands:
+    serverRestartCommand: sudo service octoprint restart
+    systemRestartCommand: sudo shutdown -r now
+    systemShutdownCommand: sudo shutdown -h now
+  firstRun: false
+  onlineCheck:
+    enabled: true
+  pluginBlacklist:
+    enabled: true
+  secretKey: 2nZg5vhQtIwCvdCQ28ORPlGNZ1JMYTzt
+  seenWizards:
+    octoeverywhere: 10
+temperature:
+  profiles:
+  - bed: 100
+    chamber: null
+    extruder: 210
+    name: ABS
+  - bed: 60
+    chamber: null
+    extruder: 180
+    name: PLA
+webcam:
+  ffmpeg: /usr/bin/ffmpeg
+  snapshot: http://127.0.0.1:8080/?action=snapshot
+  stream: /webcam/?action=stream
+  streamRatio: '4:3'
+  watermark: false

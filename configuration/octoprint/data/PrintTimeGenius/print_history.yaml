@@ -1,0 +1,72 @@
+print_history:
+- analysisFirstFilamentPrintTime: 13.019669283583426
+  analysisLastFilamentPrintTime: 3791.0481344436835
+  analysisPrintTime: 3796.3949759834004
+  compensatedPrintTime: 3870.0830973989005
+  firstFilamentPrintTime: 200.9246741700008
+  lastFilamentPrintTime: 4966.8091270919995
+  payload:
+    name: 3.gcode
+    origin: local
+    owner: _api
+    path: tri/3.gcode
+    size: 3898683
+    time: 4973.193793749002
+  timestamp: 1677159776.74155
+- analysisFirstFilamentPrintTime: 13.019669283583426
+  analysisLastFilamentPrintTime: 5049.1250818387625
+  analysisPrintTime: 5054.657521945218
+  compensatedPrintTime: 5137.08942640238
+  firstFilamentPrintTime: 112.10150452600101
+  lastFilamentPrintTime: 7144.627702676
+  payload:
+    name: 6.gcode
+    origin: local
+    owner: sergio
+    path: tri/6.gcode
+    size: 5428540
+    time: 7151.88120163
+  timestamp: 1677106876.8169131
+- analysisFirstFilamentPrintTime: 13.019669283583426
+  analysisLastFilamentPrintTime: 2515.0978773695265
+  analysisPrintTime: 2520.591227879818
+  compensatedPrintTime: 2594.1328403247435
+  firstFilamentPrintTime: 102.9646040080006
+  lastFilamentPrintTime: 2941.6416853339997
+  payload:
+    name: 5.gcode
+    origin: local
+    owner: sergio
+    path: tri/5.gcode
+    size: 937637
+    time: 2949.880982917999
+  timestamp: 1677099418.985902
+- analysisFirstFilamentPrintTime: 13.019669283583426
+  analysisLastFilamentPrintTime: 2059.8674895093486
+  analysisPrintTime: 2065.045555167852
+  compensatedPrintTime: 2138.9024524645656
+  firstFilamentPrintTime: 139.85878040099942
+  lastFilamentPrintTime: 3048.707606227
+  payload:
+    name: 7.gcode
+    origin: local
+    owner: sergio
+    path: tri/7.gcode
+    size: 1641813
+    time: 3055.957591747
+  timestamp: 1677095025.774503
+- analysisFirstFilamentPrintTime: 13.019669283583426
+  analysisLastFilamentPrintTime: 2227.9808305372126
+  analysisPrintTime: 2233.5319296479115
+  compensatedPrintTime: 2307.0157934924296
+  firstFilamentPrintTime: 55.112732287000085
+  lastFilamentPrintTime: 3267.704279861
+  payload:
+    name: 4.gcode
+    origin: local
+    owner: _api
+    path: tri/4.gcode
+    size: 1679831
+    time: 3274.755085704
+  timestamp: 1677090445.294496
+version: 2.3.0

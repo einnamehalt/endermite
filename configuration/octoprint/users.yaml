@@ -1,0 +1,15 @@
+_version: 2
+sergio:
+  active: true
+  apikey: null
+  groups:
+  - admins
+  - users
+  password: $argon2id$v=19$m=65536,t=3,p=4$M0YIwXhvbU2plfKe8x7j/A$fNKc9oM3pcJ+4ed4iZfB3lq6nP9nRsMaG0g6ED7lNhA
+  permissions: []
+  roles:
+  - user
+  - admin
+  settings:
+    interface:
+      language: _default
