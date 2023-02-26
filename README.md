@@ -120,6 +120,17 @@ alias butane='podman run --rm --interactive       \
 ```
 Use docker if prefered.
 
+```bash
+IGNITION_CONFIG="/home/sergio/code/endermite/ignition/main-x86_64.ign"
+IMAGE="/home/sergio/.local/share/libvirt/images/fedora-coreos-37.20230205.3.0-qemu.x86_64.qcow2"
+VM_NAME="fcos-test-01"
+VCPUS="2"
+RAM_MB="2048"
+STREAM="stable"
+DISK_GB="10"
+IGNITION_DEVICE_ARG=(--qemu-commandline="-fw_cfg name=opt/com.coreos/config,file=${IGNITION_CONFIG}")
+```
+
 ### Generate Ignition File
 
 `butane --strict -d ./ ./main.bu > ./ignition/main-aarch64.ign`

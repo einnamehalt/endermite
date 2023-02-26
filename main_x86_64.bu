@@ -1,3 +1,5 @@
+variant: fcos
+version: 1.4.0
 storage:  
   files:
     - path: /usr/local/bin/docker-compose
